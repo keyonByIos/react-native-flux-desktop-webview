@@ -1,9 +1,26 @@
 {
   "name": "react-native-flux-desktop-webview",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "Independent WebView branch for react-native-flux-desktop (Chromium via wry; Windows=WebView2). Opt-in, keeps the main package 'zero-webview' default.",
+  "license": "MIT",
+  "author": "keyon",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keyonByIos/react-native-flux-desktop-webview.git"
+  },
+  "homepage": "https://github.com/keyonByIos/react-native-flux-desktop-webview#readme",
+  "bugs": {
+    "url": "https://github.com/keyonByIos/react-native-flux-desktop-webview/issues"
+  },
   "main": "index.js",
   "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "component.js",
+    "component.d.ts",
+    "*.node"
+  ],
   "scripts": {
     "build": "napi build --platform --release",
     "build:debug": "napi build --platform",
