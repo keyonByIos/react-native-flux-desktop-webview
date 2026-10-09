@@ -1,0 +1,27 @@
+[package]
+name = "react-native-flux-desktop-webview"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+# napi4 起支持 threadsafe function（从原生回调 JS 的关键），与主包对齐
+napi = { version = "2", default-features = false, features = ["napi4"] }
+napi-derive = "2"
+# view-only 模块：不再自己建窗口/事件循环（那是主库的唯一一份），所以不再依赖 winit。
+# 只需把 WebView2 子面挂到一个「外来 HWND」上 → 用 raw-window-handle 0.6 搭桩窗口喂给 wry（wry 0.47 亦走 rwh0.6）。
+raw-window-handle = "0.6"
+# WebView 跨平台封装（Chromium 内核）：Windows=WebView2(Edge Chromium)。用 0.47：with_web_context/with_bounds/build_as_child 新式 API。
+wry = "0.47"
+# 解析注入脚本上报的 IPC/生命周期 JSON 信封（web→host）与 postMessage 安全嵌入（host→web）。
+serde_json = "1"
+
+[build-dependencies]
+napi-build = "2"
+
+[profile.release]
+lto = true
+opt-level = 3
+codegen-units = 1

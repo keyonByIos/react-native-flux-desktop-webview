@@ -1,0 +1,5 @@
+node_modules/
+target/
+src/
+# 只发产物不传源码：Rust 源码 src/ + target/ 保持忽略；
+# *.node / index.js / index.d.ts 是 napi 发布产物，不忽略（要入库）。

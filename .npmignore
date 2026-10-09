@@ -1,0 +1,11 @@
+# 发布/本地 file: 消费用的打包排除清单。
+# ⚠️ 关键：本文件存在后，npm 打包只依据此列表、不再回退 .gitignore。
+# 我们要把 napi 构建产物（index.js / index.d.ts / *.node）纳入包，好让 gallery 以 file: 直接消费；
+# 只需挡掉「体积巨大或可重生」的东西。切勿在此列出 index.js / *.node / index.d.ts。
+
+# cargo 构建缓存（数 GB，必须排除）
+target/
+
+# 依赖与本地噪声
+node_modules/
+.gitignore

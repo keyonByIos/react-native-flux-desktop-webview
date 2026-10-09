@@ -1,0 +1,33 @@
+{
+  "name": "react-native-flux-desktop-webview",
+  "version": "0.1.0",
+  "description": "Independent WebView branch for react-native-flux-desktop (Chromium via wry; Windows=WebView2). Opt-in, keeps the main package 'zero-webview' default.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "napi build --platform --release",
+    "build:debug": "napi build --platform",
+    "test": "node test-render.js"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^2.18.4"
+  },
+  "peerDependencies": {
+    "react": ">=17",
+    "react-native-flux-desktop": ">=0.1.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-native-flux-desktop": {
+      "optional": true
+    }
+  },
+  "napi": {
+    "name": "react-native-flux-desktop-webview",
+    "triples": {
+      "defaults": true
+    }
+  }
+}
